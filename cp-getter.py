@@ -1,4 +1,4 @@
-import xlrd,sys
+import xlrd, sys
 
 def get_data_from_xlsx(file_path:str,column:int):
 	cp_list:list=[]
@@ -14,13 +14,17 @@ def get_data_from_xlsx(file_path:str,column:int):
 
 	return cp_list
 
-def write_txt(cp:list):
-	content=""
-	for c in cp:
-		content+=str(c)+"\n"
-	textfile=open("file.txt","w")
-	textfile.write(content)
-	textfile.close()
+def write_txt(cps: list):
+    content=""
+
+    for cp in cps:
+        cp_str = str(cp)
+        cp_str = cp_str.rjust(5, "0")
+        content += cp_str + "\n"
+
+    textfile = open("file.txt","w")
+    textfile.write(content)
+    textfile.close()
 
 
 if __name__=="__main__":
